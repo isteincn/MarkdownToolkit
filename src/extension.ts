@@ -5,7 +5,7 @@ import { docFxItemsListFactory } from './docfx-items-list';
 import { SortingTypeOptions } from './configurations';
 
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('docfx-toc-generator.generateYamlToc', async (folder: vscode.Uri) => {
+	let disposable = vscode.commands.registerCommand('markdown-toolkit.generateYamlToc', async (folder: vscode.Uri) => {
 
 		if (folder instanceof vscode.Uri === false) {
 			vscode.window.showErrorMessage("Invalid command execution context");

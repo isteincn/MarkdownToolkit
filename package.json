@@ -1,10 +1,10 @@
 {
-	"name": "docfx-toc-generator",
-	"publisher": "MomoNet",
-	"repository": "https://github.com/AlahmadiQ8/docfx-toc-generator-vscode",
-	"displayName": "DocFx Toc Generator",
-	"description": "Generates a Table of Contents (TOC) in YAML format for DocFX. This extension is an implementation of [TocDocFxCreation](https://github.com/Ellerbach/docfx-companion-tools) in Visual Studio Code. ",
-	"version": "0.0.3",
+	"name": "MarkdownToolkit",
+	"publisher": "alvinshi",
+	"repository": "https://github.com/isteincn/MarkdownToolkit.git",
+	"displayName": "MarkdownToolkit",
+	"description": "To help users take notes better with docfx and markdown. This extension is forked from [docfx-toc-generator-vscode](https://github.com/AlahmadiQ8/docfx-toc-generator-vscode.git) in Visual Studio Code. ",
+	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.58.0"
 	},
@@ -18,7 +18,7 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "docfx-toc-generator.generateYamlToc",
+				"command": "markdown-toolkit.generateYamlToc",
 				"title": "Generate YAML Toc"
 			}
 		],
@@ -38,7 +38,7 @@
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "docfx-toc-generator.generateYamlToc",
+					"command": "markdown-toolkit.generateYamlToc",
 					"group": "docfx",
 					"when": "explorerResourceIsFolder == true"
 				}
@@ -54,15 +54,15 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.58.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.2.2",
 		"@types/node": "14.x",
-		"eslint": "^7.27.0",
+		"@types/vscode": "^1.58.0",
 		"@typescript-eslint/eslint-plugin": "^4.26.0",
 		"@typescript-eslint/parser": "^4.26.0",
+		"eslint": "^7.27.0",
 		"glob": "^7.1.7",
-		"mocha": "^8.4.0",
+		"mocha": "^10.0.0",
 		"typescript": "^4.3.2",
 		"vscode-test": "^1.5.2"
 	}
