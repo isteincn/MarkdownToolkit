@@ -1,27 +1,35 @@
 import * as path from 'path';
 import { Uri } from "vscode";
 
-type ItemFormatter = (name: string, path: string) => string;
+type ItemFormatter = (item : DocFxItem) => string;
 
-function yamlFormatter(name: string, path: string) {
-    return `- name: ${name}\n  href: ${path}`;
+function yamlFormatter(item : DocFxItem) {
+    const filePath = path.basename(item.fsPath);
+    if(item.isLowerIndex)
+    {
+        return `- name: ${item.name}\n  href: ${path.join(item.name, "toc.yml")}\n  homepage: ${path.join(item.name, "介绍.md")}`;
+    }
+    return `- name: ${item.name}\n  href: ${filePath}`;
 }
 
 export class DocFxItem {
-    private name: string;
+    public name: string;
 
     // TODO: make private once DocFxItems Class is implemented to define custome sorting
-    public uri: Uri;
+    public fsPath: string;
     public itemFormatter: ItemFormatter;
-
-    constructor(name: string, path: Uri, itemFormatter: ItemFormatter = yamlFormatter) {
+    public isLowerIndex: Boolean;
+    //public parentDir: string;
+    constructor(name: string, path: string, index: Boolean, itemFormatter: ItemFormatter = yamlFormatter) {
         this.name = name;
-        this.uri = path;
+        this.fsPath = path;
+        this.isLowerIndex = index;
+        //this.parentDir = parent;
         this.itemFormatter = itemFormatter;
     }
 
     toString(): string {
-        const filePath = path.basename(this.uri.fsPath);
-        return this.itemFormatter(this.name, filePath);
+        
+        return this.itemFormatter(this);
     }
 }

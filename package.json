@@ -12,14 +12,15 @@
 		"Other"
 	],
 	"activationEvents": [
-		"workspaceContains:**/docfx.json"
+		"workspaceContains:**/docfx.json",
+		"workspaceContains:**/../docfx.json"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "markdown-toolkit.generateYamlToc",
-				"title": "Generate YAML Toc"
+				"command": "markdown-toolkit.DocFxGenerateToc",
+				"title": "DocFx-GenerateToc"
 			}
 		],
 		"configuration": {
@@ -38,7 +39,7 @@
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "markdown-toolkit.generateYamlToc",
+					"command": "markdown-toolkit.DocFxGenerateToc",
 					"group": "docfx",
 					"when": "explorerResourceIsFolder == true"
 				}
